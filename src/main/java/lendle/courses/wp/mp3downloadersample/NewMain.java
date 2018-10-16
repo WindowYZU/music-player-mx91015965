@@ -67,9 +67,14 @@ public class NewMain {
                         @Override
                         public void totalBytesDownloaded(long bytes, boolean finished, boolean failed) {
                            //implement this
+                           double ratio=(bytes/FILE_SIZE)*100;
+                           progress.setProgress((int) ratio);
+                           if(finished){
+                               playFile(tempFile);
+                           }
                            ////////////////
                         }
-                        protected double FILE_SIZE;
+                        
                     });
 
                 } catch (Exception ex) {

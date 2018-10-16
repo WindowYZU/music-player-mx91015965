@@ -19,7 +19,7 @@ public class FileDownloader {
     static void downloadFile(final URL url, final File destinationFile, final FileDownloaderCallback callback){
         Thread t=new Thread(){
             public void run(){
-                byte [] buffer=new byte[4096];
+                byte [] buffer=new byte[10240];
                 long bytesDownloaded=0;
                 try(InputStream input=url.openStream(); OutputStream output=new FileOutputStream(destinationFile)){
                     int bytesRead=input.read(buffer);
